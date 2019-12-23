@@ -4,7 +4,7 @@ import { Feather } from '@expo/vector-icons';
 
 const SearchBar = (props) => {
 
-    const {term, onTermChange} = props;
+    const {term, onTermChange, onTermSubmit} = props;
 
     return (
         <View style={styles.backgroundStyle }>
@@ -13,7 +13,10 @@ const SearchBar = (props) => {
                 style={styles.inputStyle}
                 placeholder='Search'
                 value={term}
-                onChangeText={newTerm => onTermChange(newTerm)}
+                onChangeText={onTermChange}
+                autoCapitalize='none'
+                autoCorrect={false}
+                onEndEditing={onTermSubmit}
             />
         </View>
     )
